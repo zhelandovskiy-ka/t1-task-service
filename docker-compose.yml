@@ -4,7 +4,7 @@ services:
     container_name: task_app
     build: .
     ports:
-      - "8080:8080"
+      - "8001:8001"
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql_db:15432/task_db
     depends_on:
