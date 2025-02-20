@@ -1,7 +1,6 @@
 package com.zhelandovskiy.t1_aop_1.service.impl;
 
 import com.zhelandovskiy.t1_aop_1.aop.annotation.CalculateRecordsLog;
-import com.zhelandovskiy.t1_aop_1.aop.annotation.CustomLogging;
 import com.zhelandovskiy.t1_aop_1.aop.annotation.TimeMetric;
 import com.zhelandovskiy.t1_aop_1.dto.TaskCreateUpdateDto;
 import com.zhelandovskiy.t1_aop_1.dto.TaskDto;

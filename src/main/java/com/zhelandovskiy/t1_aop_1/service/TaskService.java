@@ -1,6 +1,5 @@
 package com.zhelandovskiy.t1_aop_1.service;
 
-import com.zhelandovskiy.t1_aop_1.aop.annotation.TimeMetric;
 import com.zhelandovskiy.t1_aop_1.dto.TaskCreateUpdateDto;
 import com.zhelandovskiy.t1_aop_1.dto.TaskDto;
 
@@ -16,7 +15,7 @@ public interface TaskService {
      * Возвращает список всех задач.
      *
      * @return список {@link TaskDto} объектов, представляющих задачи.
-     *         Если задачи отсутствуют, возвращается пустой список.
+     * Если задачи отсутствуют, возвращается пустой список.
      */
     List<TaskDto> getAll();
 
@@ -41,7 +40,7 @@ public interface TaskService {
      * Обновляет существующую задачу по её id.
      *
      * @param task объект {@link TaskCreateUpdateDto}, содержащий новые данные для задачи.
-     * @param id идентификатор задачи, которую необходимо обновить.
+     * @param id   идентификатор задачи, которую необходимо обновить.
      * @return объект {@link TaskDto}, представляющий обновленную задачу.
      * @throws com.zhelandovskiy.t1_aop_1.exception.TaskNotFoundException если задача с указанным идентификатором не найдена.
      */
