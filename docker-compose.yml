@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  app:
+    container_name: task_app
+    build: .
+    ports:
+      - "8001:8001"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql_db:15432/task_db
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    container_name: postgresql_db
+    ports:
+      - "15432:15432"
+    environment:
+      - POSTGRES_DB=task_db
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password
+      - PGPORT=15432
