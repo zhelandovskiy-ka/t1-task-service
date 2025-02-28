@@ -16,19 +16,20 @@ public class TestAspect {
 
     @Around("@within(com.zhelandovskiy.t1_aop_1.aop.annotation.TimeMetric)")
     public Object calculateTime(ProceedingJoinPoint joinPoint) {
-        long start = System.currentTimeMillis();
 
         Object proceed;
 
         try {
+            long start = System.currentTimeMillis();
+
             proceed = joinPoint.proceed();
+
+            long end = System.currentTimeMillis();
+
+            log.info("Time {}: {} ms", joinPoint.toShortString(), end - start);
         } catch (Throwable e) {
             throw new RuntimeException(e);
         }
-
-        long end = System.currentTimeMillis();
-
-        log.info("Time {}: {} ms", joinPoint.toShortString(), end - start);
 
         return proceed;
     }
@@ -46,16 +47,15 @@ public class TestAspect {
     @AfterReturning(
             value = "@annotation(com.zhelandovskiy.t1_aop_1.aop.annotation.CalculateRecordsLog)",
             returning = "result")
-    public void calculateRecord(Object result) {
-        if (result instanceof List<?>)
-            log.info("Records received: {}", ((List<?>) result).size());
+    public void calculateRecord(List<?> result) {
+        log.info("Records received: {}", result.size());
     }
 
     @AfterThrowing(
             value = "within(com.zhelandovskiy.t1_aop_1.service.impl.TaskServiceImpl)",
             throwing = "exception")
     public void exceptionsAdvice(TaskNotFoundException exception) {
-        log.info("Getting exception: {}", exception.toString());
+        log.error("Getting exception: {}", exception.toString());
     }
 
 }
