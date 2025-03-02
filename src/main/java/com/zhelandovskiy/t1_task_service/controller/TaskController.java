@@ -1,8 +1,8 @@
-package com.zhelandovskiy.t1_aop_1.controller;
+package com.zhelandovskiy.t1_task_service.controller;
 
-import com.zhelandovskiy.t1_aop_1.dto.TaskCreateUpdateDto;
-import com.zhelandovskiy.t1_aop_1.dto.TaskDto;
-import com.zhelandovskiy.t1_aop_1.service.TaskService;
+import com.zhelandovskiy.t1_task_service.dto.TaskCreateUpdateDto;
+import com.zhelandovskiy.t1_task_service.dto.TaskDto;
+import com.zhelandovskiy.t1_task_service.service.TaskService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,6 +1,6 @@
-package com.zhelandovskiy.t1_aop_1.aop;
+package com.zhelandovskiy.t1_task_service.aop;
 
-import com.zhelandovskiy.t1_aop_1.exception.TaskNotFoundException;
+import com.zhelandovskiy.t1_task_service.exception.TaskNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
