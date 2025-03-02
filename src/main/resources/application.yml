@@ -12,6 +12,21 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+  mail:
+    host: smtp.gmail.com # необходимо указать сервер исходящих сообщений
+    port: 587 # необходимо указать порт
+    username: sender@gmail.com # необходимо указать имя пользователя
+    password: password # необходимо указать пароль
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+mail-service:
+  recipient: recipient@gmail.com # необходимо указать адрес получателя уведомлений
+
 server:
   port: 8001
   error:
