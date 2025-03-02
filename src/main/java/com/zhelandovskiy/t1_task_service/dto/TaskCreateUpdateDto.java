@@ -1,4 +1,4 @@
-package com.zhelandovskiy.t1_aop_1.dto;
+package com.zhelandovskiy.t1_task_service.dto;
 
 import lombok.Data;
 
@@ -6,5 +6,6 @@ import lombok.Data;
 public class TaskCreateUpdateDto {
     private String tittle;
     private String description;
+    private String status;
     private Long userId;
 }

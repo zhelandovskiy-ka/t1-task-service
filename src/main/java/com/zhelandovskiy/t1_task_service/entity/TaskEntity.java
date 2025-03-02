@@ -1,4 +1,4 @@
-package com.zhelandovskiy.t1_aop_1.entity;
+package com.zhelandovskiy.t1_task_service.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -18,6 +18,9 @@ public class TaskEntity {
 
     @Column(name = "description")
     private String description;
+
+    @Column(name = "status")
+    private String status;
 
     @Column(name = "user_id")
     private Long userId;
