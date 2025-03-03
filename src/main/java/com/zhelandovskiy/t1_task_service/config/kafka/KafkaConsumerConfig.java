@@ -56,12 +56,12 @@ public class KafkaConsumerConfig {
     @Bean
     ConcurrentKafkaListenerContainerFactory<String, TaskDto> kafkaListenerContainerFactory(@Qualifier("consumerFactory") ConsumerFactory<String, TaskDto> consumerFactory) {
         ConcurrentKafkaListenerContainerFactory<String, TaskDto> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factortyBuilder(consumerFactory, factory);
+        factoryBuilder(consumerFactory, factory);
 
         return factory;
     }
 
-    private <T> void factortyBuilder(ConsumerFactory<String, T> consumerFactory, ConcurrentKafkaListenerContainerFactory<String, T> factory) {
+    private <T> void factoryBuilder(ConsumerFactory<String, T> consumerFactory, ConcurrentKafkaListenerContainerFactory<String, T> factory) {
         factory.setConsumerFactory(consumerFactory);
         factory.setBatchListener(true);
         factory.setConcurrency(1);
