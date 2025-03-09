@@ -10,6 +10,7 @@ import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
+import java.util.List;
 
 @Slf4j
 @Component
@@ -18,14 +19,14 @@ public class KafkaClientConsumer {
     private final NotificationService notificationService;
 
     @KafkaListener(id = "${kafka.group-id}", topics = "${kafka.topic}", containerFactory = "kafkaListenerContainerFactory")
-    public void listener(@Payload TaskDto task,
+    public void listener(@Payload List<TaskDto> tasks,
                          Acknowledgment ack,
                          @Header(KafkaHeaders.RECEIVED_TOPIC) String topic,
                          @Header(KafkaHeaders.RECEIVED_KEY) String key) {
         log.info("Client consumer: обработка новых сообщений. From topic: {}", topic);
 
         try {
-            notificationService.sendToEmail(task);
+            tasks.forEach(notificationService::sendToEmail);
         } finally {
             ack.acknowledge();
         }

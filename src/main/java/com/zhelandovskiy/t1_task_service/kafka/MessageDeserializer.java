@@ -16,10 +16,6 @@ public class MessageDeserializer<T> extends JsonDeserializer<T> {
     private final String WARNING_MESSAGE = "Произошла ошибка при десериализации сообщения {}";
     private final Charset CHARSET = StandardCharsets.UTF_8;
 
-    private static String getMessage(byte[] data) {
-        return new String(data, StandardCharsets.UTF_8);
-    }
-
     @Override
     public T deserialize(String topic, Headers headers, byte[] data) {
         try {

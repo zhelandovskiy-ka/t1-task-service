@@ -7,6 +7,7 @@ import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
@@ -19,6 +20,7 @@ import java.util.Map;
 
 @Configuration
 @RequiredArgsConstructor
+@EnableConfigurationProperties(KafkaProperties.class)
 public class KafkaProducerConfig {
     private final KafkaProperties kafkaProperties;
 

@@ -25,6 +25,7 @@ spring:
             enable: true
 
 mail-service:
+  sender: sender@gmail.com
   recipient: recipient@gmail.com # необходимо указать адрес получателя уведомлений
 
 server:

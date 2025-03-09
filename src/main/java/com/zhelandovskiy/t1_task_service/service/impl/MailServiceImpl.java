@@ -1,9 +1,9 @@
 package com.zhelandovskiy.t1_task_service.service.impl;
 
+import com.zhelandovskiy.t1_task_service.config.mail.MailProperties;
 import com.zhelandovskiy.t1_task_service.service.MailService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -14,17 +14,15 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class MailServiceImpl implements MailService {
     private final JavaMailSender mailSender;
-
-    @Value("${spring.mail.username}")
-    private String senderName;
+    private final MailProperties mailProperties;
 
     @Override
     public void send(String to, String subject, String message) {
-        log.info("Отправка email на {}, from {}", to, senderName);
+        log.info("Отправка email на {}, from {}", to, mailProperties.getSender());
 
         try {
             SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-            simpleMailMessage.setFrom(senderName);
+            simpleMailMessage.setFrom(mailProperties.getSender());
             simpleMailMessage.setTo(to);
             simpleMailMessage.setSubject(subject);
             simpleMailMessage.setText(message);

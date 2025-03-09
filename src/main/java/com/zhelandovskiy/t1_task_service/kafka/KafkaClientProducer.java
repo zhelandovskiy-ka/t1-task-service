@@ -14,8 +14,7 @@ public class KafkaClientProducer {
     public void sendTo(String topic, Object o) {
         try {
             log.info("send message to topic: {}, object: {}", topic, o);
-            kafkaTemplate.send(topic, o).get();
-            kafkaTemplate.flush();
+            kafkaTemplate.send(topic, o);
         } catch (Exception e) {
             log.error(e.getMessage(), e);
         }
