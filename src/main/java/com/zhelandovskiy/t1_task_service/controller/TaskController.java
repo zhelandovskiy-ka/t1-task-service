@@ -1,5 +1,6 @@
 package com.zhelandovskiy.t1_task_service.controller;
 
+import com.zhelandovskiy.annotation.HttpLog;
 import com.zhelandovskiy.t1_task_service.dto.TaskCreateUpdateDto;
 import com.zhelandovskiy.t1_task_service.dto.TaskDto;
 import com.zhelandovskiy.t1_task_service.service.TaskService;
@@ -14,6 +15,7 @@ import java.util.List;
 public class TaskController {
     private final TaskService taskService;
 
+    @HttpLog
     @GetMapping
     public List<TaskDto> getAllTask() {
         return taskService.getAll();
@@ -24,6 +26,7 @@ public class TaskController {
         return taskService.getById(id);
     }
 
+    @HttpLog
     @PostMapping
     public TaskDto create(@RequestBody TaskCreateUpdateDto dto) {
         return taskService.create(dto);
@@ -34,6 +37,7 @@ public class TaskController {
         return taskService.update(dto, id);
     }
 
+    @HttpLog
     @DeleteMapping("/{id}")
     public boolean delete(@PathVariable Long id) {
         return taskService.delete(id);
