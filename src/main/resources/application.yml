@@ -1,6 +1,6 @@
 spring:
   application:
-    name: t1-aop-1
+    name: t1-task-service
   datasource:
     url: jdbc:postgresql://localhost:15432/task_db
     username: admin
@@ -12,7 +12,33 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+  mail:
+    host: smtp.gmail.com # необходимо указать сервер исходящих сообщений
+    port: 587 # необходимо указать порт
+    username: sender@gmail.com # необходимо указать имя пользователя
+    password: password # необходимо указать пароль
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+mail-service:
+  sender: sender@gmail.com
+  recipient: recipient@gmail.com # необходимо указать адрес получателя уведомлений
+
 server:
   port: 8001
   error:
     include-message: always
+
+kafka:
+  server: kafka:29092
+  session-timeout: 15000
+  max-partition-fetch-bytes: 300000
+  max-poll-records: 1
+  max-poll-interval: 3000
+  topic: task_update_notifications
+  group-id: t1-task-service
+  producer-enable: true
