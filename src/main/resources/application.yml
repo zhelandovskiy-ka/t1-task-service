@@ -42,3 +42,8 @@ kafka:
   topic: task_update_notifications
   group-id: t1-task-service
   producer-enable: true
+
+http-log:
+  enabled: true
+  level: DEBUG
+  time-metric: true
