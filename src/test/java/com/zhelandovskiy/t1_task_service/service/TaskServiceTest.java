@@ -1,4 +1,4 @@
-package com.zhelandovskiy.t1_task_service.service.impl;
+package com.zhelandovskiy.t1_task_service.service;
 
 import com.zhelandovskiy.t1_task_service.config.kafka.KafkaProperties;
 import com.zhelandovskiy.t1_task_service.dto.TaskCreateUpdateDto;
@@ -8,6 +8,7 @@ import com.zhelandovskiy.t1_task_service.exception.TaskNotFoundException;
 import com.zhelandovskiy.t1_task_service.kafka.KafkaClientProducer;
 import com.zhelandovskiy.t1_task_service.mapper.TaskMapper;
 import com.zhelandovskiy.t1_task_service.repository.TaskRepository;
+import com.zhelandovskiy.t1_task_service.service.impl.TaskServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -27,7 +28,7 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class TaskServiceImplTest {
+public class TaskServiceTest {
 
     @Mock
     private TaskRepository taskRepository;
@@ -47,7 +48,7 @@ public class TaskServiceImplTest {
     private TaskCreateUpdateDto taskCreateUpdateDto;
 
     @BeforeEach
-    public void init() {
+    public void setUp() {
         taskList = new ArrayList<>();
         taskList.add(new TaskDto(1L, "task1", "description1", "status1", 2L));
         taskList.add(new TaskDto(2L, "task2", "description2", "status2", 3L));
