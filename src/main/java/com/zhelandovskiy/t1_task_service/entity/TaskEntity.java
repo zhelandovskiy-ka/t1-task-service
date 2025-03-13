@@ -1,12 +1,15 @@
 package com.zhelandovskiy.t1_task_service.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
 @Table(name = "tasks")
 public class TaskEntity {
     @Id
