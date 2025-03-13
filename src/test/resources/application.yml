@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: t1-task-service-test
+  datasource:
+    url: jdbc:tc:postgresql:13:///task_db
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+kafka:
+  server: kafka:29092
+  session-timeout: 15000
+  max-partition-fetch-bytes: 300000
+  max-poll-records: 1
+  max-poll-interval: 3000
+  topic: task_update_notifications
+  group-id: t1-task-service
+  producer-enable: true
