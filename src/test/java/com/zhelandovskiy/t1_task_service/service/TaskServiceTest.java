@@ -63,9 +63,10 @@ public class TaskServiceTest {
     public void getAll() {
         when(taskService.getAll()).thenReturn(taskList);
 
-        List<TaskDto> actualList = taskService.getAll();
+        List<TaskDto> result = taskService.getAll();
 
-        assertIterableEquals(taskList, actualList);
+        assertNotNull(result);
+        assertIterableEquals(taskList, result);
     }
 
     @Test
@@ -76,6 +77,7 @@ public class TaskServiceTest {
 
         TaskDto result = taskService.getById(1L);
 
+        assertNotNull(result);
         assertEquals(taskDto, result);
     }
 
@@ -94,6 +96,7 @@ public class TaskServiceTest {
 
         TaskDto result = taskService.create(taskCreateUpdateDto);
 
+        assertNotNull(result);
         assertEquals(taskDto, result);
     }
 
