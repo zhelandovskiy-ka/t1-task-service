@@ -1,23 +1,22 @@
 package com.zhelandovskiy.t1_task_service.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @Entity
 @AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Table(name = "tasks")
 public class TaskEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "tittle")
-    private String tittle;
+    @Column(name = "title")
+    private String title;
 
     @Column(name = "description")
     private String description;

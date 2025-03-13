@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TaskCreateUpdateDto {
-    private String tittle;
+    private String title;
     private String description;
     private String status;
     private Long userId;
